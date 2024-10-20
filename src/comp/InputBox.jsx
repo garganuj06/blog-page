@@ -1,6 +1,6 @@
 import React, { forwardRef, useId } from "react";
 
-const Input = forwardRef(function Input(
+const InputBox = forwardRef(function Input(
   { label, type = "text", className = "", ...props },
   ref
 ) {
@@ -23,4 +23,4 @@ const Input = forwardRef(function Input(
   );
 });
 
-export default Input;
+export default InputBox;
