@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react'
-import './App.css'
 import { useDispatch } from 'react-redux'
 import {login,logout} from "./redux/authSlice"
 import authservice from './Appwrite/auth'
@@ -21,14 +20,16 @@ function App() {
         dispatch(logout())
       }
     })
-    .finally(setLoading(false))
+    .finally(()=>setLoading(false))
   },[])
 
   return loading?(<div>Loading...</div>):(
   <div className='min-h-screen flex flex-wrap content-between bg-gray-500'>
     <div className='w-full h-screen block'>
       <Header/>
+      <main>
       <Outlet/>
+      </main>
       <Footer/>
     </div>
   </div>)

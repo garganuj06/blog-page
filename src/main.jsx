@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: (
-          <AuthLayout authentication>
+          <AuthLayout authentication={false}>
             <SignUppage />
           </AuthLayout>
         ),
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       {
         path: "/all-posts",
         element: (
-          <AuthLayout>
+          <AuthLayout authentication>
             <AllPosts />
           </AuthLayout>
         ),
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
       {
         path: "/add-post",
         element: (
-          <AuthLayout>
+          <AuthLayout authentication>
             <AddPost />
           </AuthLayout>
         ),
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
       {
         path: "/edit-post/:slug",
         element: (
-          <AuthLayout>
+          <AuthLayout authentication>
             <UpdatePost />
           </AuthLayout>
         ),
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
       {
         path: "post/:slug",
         element: (
-          <AuthLayout>
+          <AuthLayout authentication>
             <Post />
           </AuthLayout>
         ),

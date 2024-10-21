@@ -1,10 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
 import { InputBox, Button } from "./index";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import authservice from "../Appwrite/auth";
-import { login as Authlogin } from "../redux/authSlice";
+import { login as authlogin } from "../redux/authSlice";
 
 function Login() {
   const navigate = useNavigate();
@@ -15,11 +15,11 @@ function Login() {
   const login = async (data) => {
     setError("");
     try {
-      const session = authservice.login(data);
+      const session = await authservice.login(data);
       if (session) {
         const userData = await authservice.getUser();
         if (userData) {
-          dispatch(Authlogin(userData));
+          dispatch(authlogin(userData));
         }
         navigate("/");
       }

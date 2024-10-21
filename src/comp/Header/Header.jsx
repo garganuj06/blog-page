@@ -3,8 +3,10 @@ import {Container,LogoutBtn} from '../index'
 import authservice from '../../Appwrite/auth'
 import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+
 function Header() {
-  const authStatus=useSelector((state)=>{state.status})
+  const authStatus=useSelector(state=>state.status)
+  // console.log("auth",authStatus)
   const navigate=useNavigate()
   const navItems=[
     {

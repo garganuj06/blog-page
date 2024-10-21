@@ -8,17 +8,17 @@ function Postform({post}) {
     const {register,handleSubmit,control,setValue,getValues,watch}=useForm({
         defaultValues:{
             title:post?.title||"",
-            slug:post?.slug||"",
+            slug:post?.$id||"",
             content:post?.content||"",
             status:post?.status||"active",
         }
     })
 
     const navigate=useNavigate()
-    const userData=useSelector((state)=>(state.Auth.userData))
+    const userData=useSelector(state=>state.userData)
     const submit=async(data)=>{
         if(post){
-            const file=data.image[0]? service.uploadFile(data.image[0]):null
+            const file=data.image[0]? await service.uploadFile(data.image[0]):null
             if(file){
                 service.deleteFile(post.featuredImage)
             }
@@ -27,7 +27,7 @@ function Postform({post}) {
                 navigate(`/post/${newpost.$id}`)
             }
         }else{
-            const file=data.image[0]?service.uploadFile(data.image[0]):null
+            const file=data.image[0]? await service.uploadFile(data.image[0]):null
             if(file){
                 const fileId=file.$id
                 data.featuredImage=fileId
