@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 function Protected({children,authentication=true}) {
     const navigate=useNavigate()
     const [loader,setLoader]=useState(true)
-    const authStatus=useSelector((state)=>state.Auth.status)
+    const authStatus=useSelector((state)=>state.status)
 
     useEffect(()=>{
         if(authentication && authStatus!==authentication){

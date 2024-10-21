@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import {login,logout} from "./redux/authSlice"
 import authservice from './Appwrite/auth'
 import { Header,Footer } from './comp'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   // console.log(import.meta.env.VITE_APPWRITE_URL)
@@ -27,6 +28,7 @@ function App() {
   <div className='min-h-screen flex flex-wrap content-between bg-gray-500'>
     <div className='w-full h-screen block'>
       <Header/>
+      <Outlet/>
       <Footer/>
     </div>
   </div>)

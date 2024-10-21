@@ -4,7 +4,7 @@ import authservice from '../../Appwrite/auth'
 import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 function Header() {
-  const authStatus=useSelector((state)=>{state.Auth.status})
+  const authStatus=useSelector((state)=>{state.status})
   const navigate=useNavigate()
   const navItems=[
     {
